@@ -1,15 +1,30 @@
+
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Title:</b>
-  <%= @post.title %>
-</p>
+<h2><%= @post.title %></h2>
+<p><i>By <%= @post.author %></i></p>
+<p><%= @post.body %></p>
 
 <p>
-  <b>Body:</b>
-  <%= @post.body %>
+  <%= link_to 'Edit', edit_post_path(@post) %> |
+  <%= link_to 'Back', posts_path %>
 </p>
 
+<h3>Comments</h3>
 
-<%= link_to 'Edit', edit_post_path(@post) %> |
-<%= link_to 'Back', posts_path %>
+<% @post.comments.each do |comment| %>
+  <p><%= comment.author %> said:</p>
+  <blockquote><p><%= comment.body %></p></blockquote>
+<% end %>
+
+
+
+
+
+
+
+
+
+
+
+
