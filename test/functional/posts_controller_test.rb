@@ -18,6 +18,7 @@ class PostsControllerTest < ActionController::TestCase
 
   test "should create post" do
     assert_difference('Post.count') do
+      @post.title = "Third Post"
       post :create, :post => @post.attributes
     end
 
